@@ -1,0 +1,115 @@
+.entry-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #eef7f6 0%, #eef2fb 55%, #f7f1ee 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+
+  .entry-card {
+    width: 760px;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 24px;
+    padding: 48px 40px;
+    box-shadow: 0 24px 60px rgba(30, 70, 90, 0.12);
+    backdrop-filter: blur(8px);
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 8px;
+
+      .logo {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #0e7c86, #14a29b);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+      .name {
+        font-size: 24px;
+        font-weight: 700;
+        color: #123;
+      }
+      .sub {
+        color: #7a8699;
+        font-size: 13px;
+      }
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 26px 0 8px;
+      color: #18283a;
+    }
+    .desc {
+      color: #6b7788;
+      margin-bottom: 34px;
+      line-height: 1.7;
+    }
+    .portals {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+
+      .portal {
+        border-radius: 18px;
+        padding: 28px 24px;
+        color: #fff;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+        cursor: pointer;
+        display: block;
+
+        .portal-icon {
+          font-size: 30px;
+          margin-bottom: 14px;
+        }
+        .portal-title {
+          font-size: 19px;
+          font-weight: 700;
+          margin-bottom: 6px;
+        }
+        .portal-desc {
+          font-size: 13px;
+          opacity: 0.92;
+          line-height: 1.6;
+        }
+        &:hover {
+          transform: translateY(-4px);
+        }
+      }
+      .portal-h5 {
+        background: linear-gradient(135deg, #e8765f, #ef9a7d);
+        box-shadow: 0 14px 30px rgba(232, 118, 95, 0.32);
+      }
+      .portal-pc {
+        background: linear-gradient(135deg, #0e7c86, #3aa6b0);
+        box-shadow: 0 14px 30px rgba(14, 124, 134, 0.32);
+      }
+    }
+    .flow {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 6px;
+      align-items: center;
+      color: #5b6b7e;
+      font-size: 12.5px;
+
+      .flow-step {
+        background: #f0f4f8;
+        border-radius: 999px;
+        padding: 5px 12px;
+      }
+      .flow-arrow {
+        color: #b3bdc9;
+      }
+    }
+  }
+}

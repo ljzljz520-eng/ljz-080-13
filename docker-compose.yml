@@ -15,6 +15,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    volumes:
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
 
   # 2. Backend Service (NestJS)
   backend:
@@ -26,9 +28,14 @@ services:
         condition: service_healthy
     environment:
       DATABASE_URL: postgresql://postgres:password@db:5432/postgres
-      # Supabase config placeholders
-      SUPABASE_URL: http://placeholder-project.supabase.co
-      SUPABASE_KEY: placeholder-key
+      # 留默认占位符时后端使用带演示数据的内存存储，开箱即用；
+      # 接入真实 Supabase 时替换为项目 URL 与 service_role key 即自动切换
+      SUPABASE_URL: ${SUPABASE_URL:-http://placeholder-project.supabase.co}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY:-placeholder-key}
+      # 管家确认时限（秒）：超时未确认自动升级社区值班台
+      FALL_ACK_SLA_SECONDS: ${FALL_ACK_SLA_SECONDS:-180}
+      # 升级巡检间隔（毫秒）
+      FALL_SCAN_INTERVAL_MS: ${FALL_SCAN_INTERVAL_MS:-5000}
 
   # 3. Frontend Service (React + Vite + Nginx)
   frontend:
