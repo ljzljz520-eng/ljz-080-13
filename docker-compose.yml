@@ -29,6 +29,9 @@ services:
       # Supabase config placeholders
       SUPABASE_URL: http://placeholder-project.supabase.co
       SUPABASE_KEY: placeholder-key
+      # 跌倒预警确认时限（秒）：超时未确认自动升级到社区值班台
+      ALERT_SLA_SECONDS: "300"
+      SCAN_INTERVAL_MS: "5000"
 
   # 3. Frontend Service (React + Vite + Nginx)
   frontend:
